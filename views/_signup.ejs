@@ -1,0 +1,41 @@
+<div class="modal fade" id="signUpModal" tabindex="-1" aria-labelledby="signUpModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="signUpModalLabel">Sign Up</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-success d-none" id="sign-up-success-alert" role="alert">
+                    Thank you for registering! A confirmation email has been sent to your account. Please click on the Activation link to activate your account.
+                </div>
+                <div class="alert alert-dark d-none" id="sign-up-error-alert" role="alert"></div>
+                <form action="/sign-up" id="sign-up-form" method="post" class="px-4 py-3">
+                    <div class="mb-3">
+                        <label for="user-name" class="form-label">User Name</label>
+                        <input type="text" name="name" class="form-control" id="user-name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="signup-email" class="form-label">Email</label>
+                        <input type="email" name="email" class="form-control" id="signup-email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="signup-password" class="form-label">Password</label>
+                        <input type="password" name="password" class="form-control" id="signup-password" placeholder="Enter your password" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="signup-confirm-password" class="form-label">Confirm Password</label>
+                        <input type="password" name="confirmPassword" class="form-control" id="signup-confirm-password" placeholder="Confirm password" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Already registered? Login</a>
+                <button type="submit" id="sign-up-btn" class="btn btn-primary" form="sign-up-form">Sign up</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/signup.js"></script>

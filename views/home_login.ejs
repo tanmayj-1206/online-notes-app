@@ -1,0 +1,73 @@
+
+
+<div class="container py-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6 col-12">
+            <div class="row d-none home-error-alert">
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <span></span>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+            <div class="row">
+                <div id="btn-add-note" class="col-auto me-auto">
+                    <button type="button" class="btn btn-primary bg-gradient btn-lg">Add Note</button>
+                </div>
+                <div id="btn-all-note" class="col-auto me-auto d-none">
+                    <button type="button" class="btn btn-primary bg-gradient btn-lg">All Note</button>
+                </div>
+                <div id="btn-edit" class="col-auto">
+                    <button type="button" class="btn btn-primary bg-gradient btn-lg">Edit</button>
+                </div>
+                <div id="btn-done" class="col-auto d-none">
+                    <button type="button" class="btn btn-success bg-gradient btn-lg">Done</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="notepad-container d-none">
+        <div class="row justify-content-center mt-2">
+            <div class="col-lg-6 col-md-8 col-12">
+                <textarea name="note" id="notepad-area" rows="15" class="w-100 form-control" style="border: 2px solid #9466c0; border-left-width: 20px; color: gray;"></textarea>
+                <input type="hidden" name="id" id="new-note-id">
+            </div> 
+        </div>
+
+        
+    </div>
+    
+    <div class="notes-container">
+        <% for(note of noteList){ %>
+
+            <div class="row justify-content-center mt-2 note-<%= note.id %>">
+                <div class="col-lg-6 col-md-8 col-12">
+                    <div class="row align-items-center justify-content-between">
+                        <div class="col-4 d-none delete-btn-container">
+                            <div class="d-grid gap-2">
+                                <a href="/delete-note/<%= note.id %>" class="btn btn-md-lg btn-danger delete-btn" type="button">Delete</a>
+                            </div>
+                        </div>
+                        <div class="col notes-list">
+
+                            <div class="border border-dark border-1 bg-light bg-gradient px-2 note-list-container" style="border-radius: 15px; cursor: pointer;">
+                                <span class="fs-4 d-block" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
+                                    <%= note.content %>
+                                </span>
+                                <span class="updated-at d-block" style="font-size: 0.9rem; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;" value="<%= note.updatedAt %>">
+                                    
+                                </span>
+                                <input type="hidden" name="id" value="<%= note.id %>">
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        <% } %> 
+    </div>
+
+       
+</div>
+
+<script src="/js/changeActivePage.js"></script>
+<script src="/js/buttonAction.js"></script>

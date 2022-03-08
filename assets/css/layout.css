@@ -1,0 +1,18 @@
+/* background */
+html{
+    position: relative;
+    min-height: 100%;
+}
+  
+body{
+      background: url('/images/bg-1.png') no-repeat center center/cover;
+      font-family: 'Arvo', serif;;
+      background-attachment: fixed;
+}
+
+.footer{
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+  }

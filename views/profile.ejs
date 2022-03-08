@@ -1,0 +1,126 @@
+<div class="container mb-5" style="margin-top: 140px;">
+    <div class="row justify-content-center mb-3">
+        <div class="col-6">
+            <h1 class="fs-1">General Account Settings:</h1>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <table class="table table-hover table-bordered">
+                <tbody>
+                  <tr style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#change-username">
+                    <td class="col-3">Username</td>
+                    <td class="col-9"><%= user.name %></td>
+                  </tr>
+                  <tr style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#changeEmailForm">
+                    <td class="col-3">Email</td>
+                    <td class="col-9"><%= user.email %></td>
+                  </tr>
+                  <tr style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#changePassword">
+                    <td class="col-3">Password</td>
+                    <td class="col-9">hidden</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+
+</div>
+
+<!-- Edit Username Modal -->
+<div class="modal fade" id="change-username" tabindex="-1" aria-labelledby="change-username-label" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="change-username-label">Edit Username</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="alert alert-success d-none" id="change-username-success-alert" role="alert">
+                Username changed Successfully!
+            </div>
+            <div class="alert alert-dark d-none" id="change-username-error-alert" role="alert">
+              </div>
+            <form action="/update-username" id="change-username-form" method="post" class="px-4 py-3">
+                <div class="mb-3">
+                    <label for="updateUsername" class="form-label">Username</label>
+                    <input type="text" name="name" class="form-control" id="updateUsername" placeholder="Enter your username" required>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" form="change-username-form" class="btn btn-primary">Submit</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+<!-- change password Modal -->
+<div class="modal fade" id="changePassword" tabindex="-1" aria-labelledby="changePasswordLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="changePasswordLabel">Chang your Password</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="alert alert-success d-none" id="change-password-success-alert" role="alert">
+                Password changed Successfully!
+            </div>
+            <div class="alert alert-dark d-none" id="change-password-error-alert" role="alert">
+              </div>
+            <form action="/update-password" id="change-password-form" method="post" class="px-4 py-3">
+                <div class="mb-3">
+                    <label for="user-name" class="form-label">Current Password</label>
+                    <input type="password" name="currentPassword" class="form-control" id="current-password" placeholder="Enter your current password" required>
+                </div>
+                <div class="mb-3">
+                    <label for="signup-password" class="form-label">New Password</label>
+                    <input type="password" name="password" class="form-control" id="update-password" placeholder="Choose a password" required>
+                </div>
+                <div class="mb-3">
+                    <label for="signup-confirm-password" class="form-label">Confirm Password</label>
+                    <input type="password" name="confirmPassword" class="form-control" id="update-confirm-password" placeholder="Confirm password" required>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" form="change-password-form" class="btn btn-primary">Submit</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+<!-- change email Modal -->
+<div class="modal fade" id="changeEmailForm" tabindex="-1" aria-labelledby="changeEmailFormLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="changeEmailFormLabel">Forgot Password</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-success d-none" id="change-email-success-alert" role="alert">
+                    A confirmation email has been sent to your account. Please click on the Activation link to activate your account.
+                </div>
+                <div class="alert alert-dark d-none" id="change-email-error-alert" role="alert">
+                  </div>
+                <form action="/update-email" id="change-email-form" method="post" class="px-4 py-3">
+                    <div class="mb-3">
+                        <label for="changeEmailEmail" class="form-label">Email</label>
+                        <input type="text" name="email" class="form-control" id="changeEmailEmail" placeholder="Enter your email" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" form="change-email-form" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/updateProfile.js"></script>

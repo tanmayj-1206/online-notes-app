@@ -14,6 +14,7 @@ router.get('/reset-password/:token', homeController.resetPasswordView);
 router.post('/change-password', homeController.resetPassword);
 
 router.post('/login', homeController.login );
+router.get('/notes', passport.checkAuthentication, homeController.loadNotes);
 
 router.get('/logout', homeController.logout);
 

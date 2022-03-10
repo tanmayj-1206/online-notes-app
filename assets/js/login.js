@@ -11,7 +11,7 @@
                 success: function (response) {
                     $('#login-form-error-alert').addClass('d-none');
                     console.log(response);
-                    window.location.href = '/';
+                    window.location.href = '/notes';
                 }, error: function(err){
                     let msg = eval("(" + err.responseText + ")");
                     $('#login-form-error-alert').html(msg);

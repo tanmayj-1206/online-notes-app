@@ -11,9 +11,7 @@ module.exports.home = async function(req, res){
     try{
 
         if(req.isAuthenticated()){
-            let note = await Notes.deleteMany({content: ''});
-            let notes = await Notes.find({user: req.user._id}).sort('-updatedAt');
-            return res.render('home_login', {title: 'Online Notes | Home', noteList: notes});
+            return res.redirect('/notes')
         }
         
         return res.render('home', {title: 'Online Notes | Home'});
@@ -168,6 +166,15 @@ module.exports.login = function(req, res, next){
         res.json(user);
     })(req, res, next);
 
+}
+
+module.exports.loadNotes = async function(req, res){
+    if(req.isAuthenticated()){
+        let note = await Notes.deleteMany({content: ''});
+        let notes = await Notes.find({user: req.user._id}).sort('-updatedAt');
+        return res.render('home_notes', {title: 'Online Notes | Forgot password', noteList: notes})
+    }
+    return res.redirect('/');
 }
 
 module.exports.logout = function(req, res){

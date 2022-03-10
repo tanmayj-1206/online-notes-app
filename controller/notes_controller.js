@@ -4,7 +4,6 @@ const User = require('../model/users');
 module.exports.showNotes = async function(req, res){
     try{
         let note = await Notes.deleteMany({content: ''});
-        console.log(note);
         let notes = await Notes.find({user: req.user._id}).sort('-updatedAt');
         return res.status(200).json({
             data: notes,
